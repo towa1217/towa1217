@@ -1,0 +1,22 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @user %>
+
+<div>
+  <%= link_to "Edit this user", edit_user_path(@user) %> |
+  <%= link_to "Back to users", users_path %>
+
+  <%= button_to "Destroy this user", @user, method: :delete %>
+
+  <h1> <%= @user.name %> </h1>
+  <p>最初のマイクロポスト</p>
+  <%# ユーザーがマイクロポストを1つ以上持っているかチェック %>
+  <% if @user.microposts.any? %>
+  <%# ユーザーの最初のマイクロポストの内容を表示 %>
+    <p> <%= @user.microposts.first.content %>
+  <%# マイクロポストがまだない場合は("まだマイクロポルトがありません")と表示 %>
+  <% else %>
+    <p> まだマイクロポストがありません </p>
+  <% end %>
+
+</div>
